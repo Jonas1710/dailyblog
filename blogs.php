@@ -5,8 +5,9 @@
   // Schlaufe über alle Blogs bzw. Benutzer
   foreach ($blogs as $blog) {
 	?>
-		<div><a href='echo index.php?function=entries_public&bid='<?php $blog['eid']?> title='Blog auswählen'><h4> <?php getUserName($blogId)  ?></h4></a></div>
+		<div><a href=index.php?function=blogs&bid='1'><h4> <?php echo getUserName($uid);  ?></h4></a></div>
 <?php
+//<?php $blog[$blogId]
   }
 	?>
 
