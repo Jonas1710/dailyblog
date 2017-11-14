@@ -25,10 +25,17 @@
   }
 
   function getMenu($blogId){
-    if ($blogId > 0) {
-    echo "<li><a href='index.php?function=login&bid=$blogId'>Login</a></li>";
+    if ($blogId >= 0) {
+      if (!isset($_SESSION['uid'])){
+        echo "<li><a href='index.php?function=login&bid=$blogId'>Login</a></li>";
+      }
     echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
-    echo "<li><a href='index.php?function=entries_public&bid=$blogId'>Beiträge anzeigen</a></li>";
+      if (isset($_SESSION['uid'])){
+        echo "<li><a href='index.php?function=logout&bid=$blogId'>Logout</a></li>";
+        echo "<li><a href='index.php?function=entries_member&bid=".$_SESSION['uid']."'>Mein Blog</a></li>";
+        echo "<li><a href='index.php?function=entries_member_create&bid=".$_SESSION['uid']."'>Neuen Blog erstellen</a></li>";
+      }
+
     }
     else {
       $blogId = 0;

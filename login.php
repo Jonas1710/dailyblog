@@ -12,6 +12,7 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
   $passwort = $_POST['passwort'];
   $uid = getUserIdFromDb($email, $passwort);
   if (!empty($uid)){
+    session_start();
     $_SESSION['uid'] = $uid;
     header('Location: index.php?function=entries_member&bid='.$uid);
   } else {
