@@ -5,26 +5,16 @@
 
    foreach ($entries as $entry => $blogs) {
      $content = preg_replace("/[^ ]*$/", '', substr($blogs['content'], 0, 200));
-     echo '<h4>';
-     echo $blogs['title'];
-     echo '</h4>';
-     echo date('d.m.Y',$blogs['datetime']);
-     echo '<br>';
-     echo $content;
-     echo '...';
-     echo '<a href="index.php?function=entries_member_details&bid=';
-     echo $blogId;
-     echo '&eid=';
-     echo $blogs['eid'];
-     echo '">Blog anzeigen </a>';
+     echo "<h4>".$blogs['title']."</h4>";
+     echo date('d.m.Y',$blogs['datetime'])."<br>";
+     echo $content.'...';
+     echo '<a href="index.php?function=entries_member_details&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog anzeigen </a>';
+     echo '<a href="index.php?function=entries_member_delete&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog Löschen </a>';
+     echo '<a href="index.php?function=entries_member_edit&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog Löschen </a>';
      echo "<br>"."<br>";
 
    }
-
  } else {
      die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
  }
-
-
-
  ?>

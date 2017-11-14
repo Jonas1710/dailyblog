@@ -1,26 +1,23 @@
 <?php
 if(getUserIdFromSession() == 0) {
-  header('Location: index.php?function=login&bid='.$blogId);
+      die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
+} else {
+
+
+  $meldung = "";
+
+  if(empty($_POST['titel']) & empty($_POST['content'])){
+    $titel = '';
+    $content = '';
+
+  } else {
+  $titel = $_POST['titel'];
+  $content = $_POST['content'];
+  $createdEntry = addEntry($_SESSION['uid'],$titel,$content);
+  header('Location: index.php?function=entries_member&bid='.$_SESSION['uid']);
+  }
+
 }
-
-$meldung = "";
-
-if(empty($_POST['titel']) & empty($_POST['content'])){
-  $titel = '';
-  $content = '';
-
-}
-else{
-$titel = $_POST['titel'];
-$content = $_POST['content'];
-$createdEntry = addEntry($_SESSION['uid'],$titel,$content);
-header('Location: index.php?function=entries_member&bid='.$_SESSION['uid']);
-}
-
-
-
-
-
  ?>
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?function=entries_member_create"; ?>">
