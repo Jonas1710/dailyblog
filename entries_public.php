@@ -1,10 +1,24 @@
 <?php
   // Alle Blogeinträge holen, die Blog-ID ist in der Variablen $blogId gespeichert (wird in index.php gesetzt)
   // Hier Code... (Schlaufe über alle Einträge dieses Blogs)
+  $entries = getEntries($blogId);
+
+  foreach ($entries as $entry => $blogs) {
+    $content = preg_replace("/[^ ]*$/", '', substr($blogs['content'], 0, 200));
+    echo '<h4>';
+    echo $blogs['title'];
+    echo '</h4>';
+    echo $content;
+    echo '...';
+    echo '<a href="index.php?function=entries_public_details&bid=';
+    echo $blogId;
+    echo '&eid=';
+    echo $blogs['eid'];
+    echo '">Blog anzeigen </a>';
+    echo "<br>"."<br>";
+
+  }
+
 
   // Nachfolgend das Beispiel einer Ausgabe in HTML, dieser Teil muss mit einer Schlaufe über alle Blog-Beiträge und der Ausgabe mit PHP ersetzt werden
 ?>
-  <div>
-  <h4>Hipster Ipsum, 01.11.2016 16:42:12</h4>
-  Neutra truffaut blog, 90's microdosing gochujang fingerstache helvetica etsy. Shoreditch fashion axe tote bag wayfarers normcore, freegan hot chicken sriracha 8-bit brunch actually live-edge quinoa. Trust fund sustainable forage tilde, etsy gentrify 8-bit poutine blog swag lomo pug. Truffaut ugh pinterest, umami tofu hoodie cronut. Crucifix skateboard single-origin coffee, vape slow-carb pork belly direct trade everyday carry photo booth schlitz venmo franzen. Air plant viral stumptown pabst disrupt. Readymade mumblecore tumeric kitsch hashtag, godard trust fund.
-  </div>
