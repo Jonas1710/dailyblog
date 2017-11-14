@@ -8,6 +8,8 @@
     echo '<h4>';
     echo $blogs['title'];
     echo '</h4>';
+    echo date('d.m.Y',$blogs['datetime']);
+    echo '<br>';
     echo $content;
     echo '...';
     echo '<a href="index.php?function=entries_public_details&bid=';
