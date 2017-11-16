@@ -5,18 +5,11 @@
 
   foreach ($entries as $entry => $blogs) {
     $content = preg_replace("/[^ ]*$/", '', substr($blogs['content'], 0, 200));
-    echo '<h4>';
-    echo $blogs['title'];
-    echo '</h4>';
+    echo '<h4>'.$blogs['title'].'</h4>';
     echo date('d.m.Y',$blogs['datetime']);
     echo '<br>';
-    echo $content;
-    echo '...';
-    echo '<a href="index.php?function=entries_public_details&bid=';
-    echo $blogId;
-    echo '&eid=';
-    echo $blogs['eid'];
-    echo '">Blog anzeigen </a>';
+    echo $content.'...';
+    echo '<a href="index.php?function=entries_public_details&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog anzeigen </a>';
     echo "<br>"."<br>";
 
   }

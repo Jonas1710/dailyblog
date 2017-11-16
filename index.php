@@ -18,7 +18,8 @@
   if (isset($_GET['eid'])) $entryId = $_GET['eid'];
   else $entryId = 0;
 
-   $updateValues = array('title' => '','content' => ''); 
+
+   $updateValues = array('title' => '','content' => '');
 ?>
 <!DOCTYPE html>
 <html lang="de">

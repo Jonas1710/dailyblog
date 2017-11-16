@@ -31,9 +31,9 @@
       }
     echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
       if (isset($_SESSION['uid'])){
-        echo "<li><a href='index.php?function=logout&bid=$blogId'>Logout</a></li>";
         echo "<li><a href='index.php?function=entries_member&bid=".$_SESSION['uid']."'>Mein Blog</a></li>";
         echo "<li><a href='index.php?function=entries_member_create&bid=".$_SESSION['uid']."'>Neuen Blog erstellen</a></li>";
+        echo "<li><a href='index.php?function=logout&bid=$blogId'>Logout</a></li>";
       }
 
     }

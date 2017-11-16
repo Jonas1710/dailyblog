@@ -17,10 +17,10 @@ if(getUserIdFromSession() == true) {
  ?>
 
  <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?function=entries_member_edit;" ?>">
-		  <label class="col-md-2 control-label"></label>
-		  <div class="col-md-4">
-		  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $detailBlog['eid']?>">
-		  </div>
+  <label class="col-md-2 control-label"></label>
+  <div class="col-md-4">
+  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $detailBlog['eid']?>">
+  </div>
    <label for="titel">Titel</label>
    <div>
  	<input type="text" id="titel" name="titel" placeholder="Blog Titel" required="required" value="<?php  echo $detailBlog['title'] ?>"/>

@@ -44,11 +44,16 @@ template {
 }
 a {
   background-color: transparent;
+  text-decoration: none;
 }
 a:active,
 a:hover {
   outline: 0;
 }
+a:visited {
+  color: pink;
+}
+
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -1097,8 +1102,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
-  text-decoration: none;
+  color: pink;
 }
 a:hover,
 a:focus {
