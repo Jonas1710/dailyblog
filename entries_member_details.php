@@ -26,17 +26,17 @@ if(getUserIdFromSession() == true) {
 
     foreach ($allComments as $comments => $comment) {
       echo "<h4>".$comment['name']."</h4>";
-      echo $comment['content'];
+      echo date('d.m.Y', $comment['datetime'])."<br>";
+      echo $comment['content']."<br>";
+      echo '<a href="index.php?function=comment_member_delete&bid='.$blogId.'&eid='.$entryId.'&cid='.$comment['cid'].'"> Kommentar Löschen </a>';
     }
-  } else {
-        die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
-    }
+
 ?>
   <h3>Neuer Kommentar</h3>
-  <form method="post" action='<?php echo $_SERVER['PHP_SELF']."?function=comment_member_create"; ?>'>
+  <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=entries_member_details"; ?>'>
       <label for="id"></label>
       <div>
-        <input type="hidden" id="id" name="cid"/>
+        <input type="hidden" id="id" name="eid" value='<?= $entryId?>'/>
       </div>
         <label for="commentTitle">Kommentar Titel</label>
       <div>
@@ -50,3 +50,27 @@ if(getUserIdFromSession() == true) {
     	   <button type="submit">senden</button>
       </div>
     </form>
+
+    <?php
+    if(getUserIdFromSession() == 0) {
+          die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
+    } else {
+
+
+      if(empty($_POST['titleComment']) & empty($_POST['contentComment'])){
+        $titel = '';
+        $content = '';
+
+      } else {
+      $titel = $_POST['titleComment'];
+      $content = $_POST['contentComment'];
+      addComment($_POST['eid'] ,$titel,$content);
+      header('Location: index.php?function=entries_member_details&bid='.$_SESSION['uid'].'&eid='.$_POST['eid'].'');
+      }
+
+    }
+
+  } else {
+        die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
+    }
+     ?>

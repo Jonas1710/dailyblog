@@ -18,6 +18,8 @@
   if (isset($_GET['eid'])) $entryId = $_GET['eid'];
   else $entryId = 0;
 
+  if (isset($_GET['cid'])) $commentId = $_GET['cid'];
+  else $commentId = 0;
 
    $updateValues = array('title' => '','content' => '');
 ?>
@@ -44,12 +46,10 @@
   <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
       <div class="navbar-header">
-		<a class="navbar-brand"><?php echo getMenuTitle($blogId); ?></a>
+		<a class="navbar-brand"><?= getMenuTitle($blogId); ?></a>
       </div>
       <ul class="nav navbar-nav">
-		<?php
-		 echo getMenu($blogId);
-		?>
+		<?= getMenu($blogId); ?>
       </ul>
 	</div>
   </nav>

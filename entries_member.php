@@ -10,7 +10,7 @@
      echo $content.'...';
      echo '<a href="index.php?function=entries_member_details&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog anzeigen </a>';
      echo '<a href="index.php?function=entries_member_delete&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog Löschen </a>';
-     echo '<a href="index.php?function=entries_member_edit&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog Löschen </a>';
+     echo '<a href="index.php?function=entries_member_edit&bid='.$blogId.'&eid='.$blogs['eid'].'">Blog bearbeiten </a>';
      echo "<br>"."<br>";
 
    }
