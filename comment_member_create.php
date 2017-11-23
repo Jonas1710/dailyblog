@@ -1,19 +1,12 @@
- <?php
- if(getUserIdFromSession() == 0) {
-       die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
- } else {
+<?php
+  if(empty($_POST['titleComment']) && empty($_POST['contentComment'])){
+    $titel = '';
+    $content = '';
 
-
-   if(empty($_POST['titleComment']) & empty($_POST['contentComment'])){
-     $titel = '';
-     $content = '';
-
-   } else {
-   $titel = $_POST['titleComment'];
-   $content = $_POST['contentComment'];
-   $createdComment = addComment($entryId ,$titel,$content);
-   header("Location: index.php?function=entries_member_details&bid='.$_SESSION['uid'].'&eid='.$_SESSION['eid']'");
-   }
-
- }
-  ?>
+  } else {
+  $titel = $_POST['titleComment'];
+  $content = $_POST['contentComment'];
+  addComment($_POST['eid'] ,$titel,$content);
+  header('Location: index.php?function=entries_member_details&bid='.$blogId.'&eid='.$_POST['eid'].'');
+  }
+ ?>

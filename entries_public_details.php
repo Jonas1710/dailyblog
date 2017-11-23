@@ -66,6 +66,8 @@ echo '<p/>
       $titel = $_POST['titleComment'];
       $content = $_POST['contentComment'];
       addComment($_POST['eid'] ,$titel,$content);
-      header('Location: index.php?function=entries_public_details&bid='.$_SESSION['uid'].'&eid='.$_POST['eid'].'');
+      header('Location: index.php?function=entries_public_details&bid='.$blogId.'&eid='.$_POST['eid'].'');
       }
+
+      echo '<br><a href="index.php?function=entries_public&bid='.$blogId.'&eid='.$entryId.'">zurück</a>';
 ?>

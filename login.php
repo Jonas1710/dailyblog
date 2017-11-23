@@ -49,3 +49,5 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
 	<button type="submit">senden</button>
   </div>
 </form>
+
+<?= "<br><a href=\"javascript:history.go(-1)\">zurück</a>"; ?>

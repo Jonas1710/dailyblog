@@ -20,7 +20,7 @@ if(getUserIdFromSession() == 0) {
 }
  ?>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']."?function=entries_member_create"; ?>">
+<form method="post" action="<?=  $_SERVER['PHP_SELF']."?function=entries_member_create"; ?>">
   <label for="titel">Titel</label>
   <div>
 	<input type="text" id="titel" name="titel" placeholder="Blog Titel" required="required"/>
@@ -33,3 +33,5 @@ if(getUserIdFromSession() == 0) {
 	<button type="submit">senden</button>
   </div>
 </form>
+
+<?= "<br><a href=\"javascript:history.go(-1)\">zurück</a>"; ?>
