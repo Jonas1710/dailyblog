@@ -17,9 +17,8 @@ $confirm_password = '';
         $rolle = $_POST['role'];
         $password = md5($password);
         addUser($benutzername, $email, $password, $rolle);
-        header('Location: index.php?function=login&bid='.$blogId);
       } else {
-         echo "fuck you";
+        $meldung = "Ihr Passwörter stimmen nicht überein";
       }
 
     }
@@ -52,7 +51,7 @@ $confirm_password = '';
   <input type="hidden" id="role" name="role" value="1" />
   </div>
   <div class="meldung">
-    <p color="red" ><?php echo $meldung; ?></p>
+    <p style="color:red" ><?php echo $meldung; ?></p>
   </div>
   <div>
 	<button type="submit">senden</button>

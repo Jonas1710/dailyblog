@@ -16,6 +16,7 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
     header('Location: index.php?function=entries_member&bid='.$uid.'');
   } else {
     $meldung = "Login ist Falsch";
+      header('Location: index.php?function=login&bid='.$blogId.'');
   }
 
 
