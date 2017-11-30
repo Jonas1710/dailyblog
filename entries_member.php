@@ -4,6 +4,7 @@
    $entries = getEntries($blogId);
    if ($entries == NULL) {
      echo "Sie haben noch keinen Blog erstellt";
+     echo '<a href="index.php?function=entries_member_create&bid='.$blogId.'">Blog erstellen </a>';
    } else {
      foreach ($entries as $entry => $blogs) {
        $content = preg_replace("/[^ ]*$/", '', substr($blogs['content'], 0, 200));
