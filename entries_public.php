@@ -14,6 +14,6 @@
 
   }
 
-  echo "<br><a href='index.php?function=blogs&bid=$blogId'>Zurück</a>";
+  echo '<br><a href="index.php?function=blogs&bid='.$blogId.'">Zurück</a>';
   // Nachfolgend das Beispiel einer Ausgabe in HTML, dieser Teil muss mit einer Schlaufe über alle Blog-Beiträge und der Ausgabe mit PHP ersetzt werden
 ?>

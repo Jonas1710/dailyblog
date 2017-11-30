@@ -32,10 +32,23 @@
         }
 
       }
+
+      if(empty($_POST['titleComment']) && empty($_POST['contentComment'])){
+           $titel = '';
+           $content = '';
+
+         } else {
+         $titel = $_POST['titleComment'];
+         $content = $_POST['contentComment'];
+         addComment($_POST['eid'] ,$titel,$content);
+         header('Location: index.php?function=entries_member_details&bid='.$_POST['bid'].'&eid='.$_POST['eid'].'');
+         }
+
+
     ?>
 
 <h3>Neuer Kommentar</h3>
-  <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=comment_member_create"; ?>'>
+  <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=entries_member_details"; ?>'>
       <label for="id"></label>
       <div>
         <input type="hidden" id="id" name="eid" value='<?= $entryId?>'/>
@@ -56,15 +69,4 @@
       </div>
     </form>
 
-<?php if(empty($_POST['titleComment']) & empty($_POST['contentComment'])){
-      $titel = '';
-      $content = '';
-
-    } else {
-    $titel = $_POST['titleComment'];
-    $content = $_POST['contentComment'];
-    addComment($_POST['eid'] ,$titel,$content);
-    header('Location: index.php?function=entries_member_details&bid='.$blogId.'&eid='.$_POST['eid'].'');
-    }
-
-echo '<br><a href="index.php?function=entries_member&bid='.$blogId.'&eid='.$entryId.'>Zurück</a>'; ?>
+    <?= '<br><a href="index.php?function=entries_member&bid='.$blogId.'>Zurück</a>'; ?>

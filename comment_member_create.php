@@ -7,6 +7,6 @@
   $titel = $_POST['titleComment'];
   $content = $_POST['contentComment'];
   addComment($_POST['eid'] ,$titel,$content);
-  header('Location: index.php?function=entries_member_details&bid='.$blogId.'&eid='.$_POST['eid'].'');
+  header('Location: index.php?function=entries_member_details&bid='.$_POST['bid'].'&eid='.$_POST['eid'].'');
   }
  ?>

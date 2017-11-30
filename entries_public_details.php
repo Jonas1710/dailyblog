@@ -37,11 +37,7 @@ echo '<p/>
 
 ?>
   <h3>Neuer Kommentar</h3>
-  <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=entries_public_details"; ?>'>
-      <label for="id"></label>
-      <div>
-        <input type="hidden" id="id" name="eid" value='<?= $entryId?>'/>
-      </div>
+  <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=entries_public_details&bid='.$blogId.'&eid='.$entryId.'"; ?>'>
         <label for="commentTitle">Kommentar Titel</label>
       <div>
     	   <input type="text" id="title" name="titleComment" placeholder="Kommentar Titel" required="required"/>
@@ -66,8 +62,8 @@ echo '<p/>
       $titel = $_POST['titleComment'];
       $content = $_POST['contentComment'];
       addComment($_POST['eid'] ,$titel,$content);
-      header('Location: index.php?function=entries_public_details&bid='.$blogId.'&eid='.$_POST['eid'].'');
+      header('Location: index.php?function=entries_public_details&bid='.$blogId.'&eid='.$entryId.'');
       }
 
-      echo '<br><a href="index.php?function=entries_public&bid='.$blogId.'&eid='.$entryId.'">zurück</a>';
+      echo '<br><a href="index.php?function=entries_public&bid='.$blogId.'">zurück</a>';
 ?>

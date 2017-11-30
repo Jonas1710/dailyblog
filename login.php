@@ -14,10 +14,11 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
   if (!empty($uid)){
     session_start();
     $_SESSION['uid'] = $uid;
-    header('Location: index.php?function=entries_member&bid='.$uid);
+    header('Location: index.php?function=entries_member&bid='.$uid.'');
   } else {
     $meldung = "Login ist Falsch";
   }
+
 
 
 }
@@ -33,7 +34,7 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
   // Wenn Formular gesendet worden ist, die Login-Daten aber nicht korrekt sind:
   // Unten auf der Seite Anzeige der Fehlermeldung.
 ?>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']."?function=login"; ?>">
+<form method="post" action="<?= $_SERVER['PHP_SELF']."?function=login"; ?>">
   <label for="email">Benutzername</label>
   <div>
 	<input type="email" id="email" name="email" placeholder="E-Mail" value="" />
@@ -50,4 +51,5 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
   </div>
 </form>
 
-<?= "<br><a href=\"javascript:history.go(-1)\">zurück</a>"; ?>
+<?php  die('Noch kein Login?  <a href="index.php?function=register&bid='.$blogId.'">hier Registrieren</a>');
+ echo "<br><a href=\"javascript:history.go(-1)\">zurück</a>"; ?>

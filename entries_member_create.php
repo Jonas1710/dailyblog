@@ -14,13 +14,13 @@ if(getUserIdFromSession() == 0) {
   $titel = $_POST['titel'];
   $content = $_POST['content'];
   $createdEntry = addEntry($_SESSION['uid'],$titel,$content);
-  header('Location: index.php?function=entries_member&bid='.$_SESSION['uid']);
+  header('Location: index.php?function=entries_member&bid='.$blogId.'');
   }
 
-}
+
  ?>
 
-<form method="post" action="<?=  $_SERVER['PHP_SELF']."?function=entries_member_create"; ?>">
+<form method="post" action="<?=  $_SERVER['PHP_SELF'].'?function=entries_member_create&bid='.$blogId.''; ?>">
   <label for="titel">Titel</label>
   <div>
 	<input type="text" id="titel" name="titel" placeholder="Blog Titel" required="required"/>
@@ -34,4 +34,7 @@ if(getUserIdFromSession() == 0) {
   </div>
 </form>
 
-<?= "<br><a href=\"javascript:history.go(-1)\">zurück</a>"; ?>
+<?php echo  "<br><a href=\"javascript:history.go(-1)\">zurück</a>";
+
+}
+ ?>
