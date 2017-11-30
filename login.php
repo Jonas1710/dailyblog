@@ -44,7 +44,7 @@ if(empty($_POST['email']) & empty($_POST['passwort'])){
 	<input type="password" id="passwort" name="passwort" placeholder="Passwort" value="" />
   </div>
   <div class="meldung">
-    <p color="red" ><?php echo $meldung; ?></p>
+    <p style="color:red" ><?php echo $meldung; ?></p>
   </div>
   <div>
 	<button type="submit">senden</button>
