@@ -4,7 +4,7 @@ $password = '';
 $confirm_password = '';
 
 
-    if(empty($_POST['benutzername']) && empty($_POST['email']) && empty($_POST['password']) && empty($_POST['confirm_password'])){
+    if(empty($_POST)){
       $benutzername = '';
       $email = '';
       $password = '';
@@ -17,6 +17,7 @@ $confirm_password = '';
         $rolle = $_POST['role'];
         $password = md5($password);
         addUser($benutzername, $email, $password, $rolle);
+          header('Location: index.php?function=login&bid='.$blogId.'');
       } else {
         $meldung = "Ihr Passwörter stimmen nicht überein";
       }

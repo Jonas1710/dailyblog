@@ -69,4 +69,4 @@
       </div>
     </form>
 
-    <?= '<br><a href="index.php?function=entries_member&bid='.$blogId.'>Zurück</a>'; ?>
+    <?= '<br><a href="index.php?function=entries_member&bid='.$blogId.'">zurück</a>';?>

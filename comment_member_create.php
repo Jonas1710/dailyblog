@@ -1,5 +1,6 @@
 <?php
-  if(empty($_POST['titleComment']) && empty($_POST['contentComment'])){
+if(getUserIdFromSession() == true) {
+  if(empty($_POST){
     $titel = '';
     $content = '';
 
@@ -9,4 +10,8 @@
   addComment($_POST['eid'] ,$titel,$content);
   header('Location: index.php?function=entries_member_details&bid='.$_POST['bid'].'&eid='.$_POST['eid'].'');
   }
+} else {
+  die('Bitte zuerst <a href="index.php?function=login">einloggen</a>');
+}
+
  ?>

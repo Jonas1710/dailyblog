@@ -16,8 +16,7 @@ if(getUserIdFromSession() == true) {
  ?>
 
  <form method="post" action="<?= $_SERVER['PHP_SELF']."?function=entries_member_edit" ?>">
-  <label class="col-md-2 control-label"></label>
-  <div class="col-md-4">
+  <div>
   	<input id="id" name="eid" type="hidden" class="form-control input-md" value="<?= $detailBlog['eid']?>">
   </div>
    <label for="titel">Titel</label>

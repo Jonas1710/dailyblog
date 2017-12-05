@@ -1,6 +1,7 @@
  <?php
 
  if(getUserIdFromSession() == true) {
+   echo '<h1>Meine Blogs<h1>';
    $entries = getEntries($blogId);
    if ($entries == NULL) {
      echo "Sie haben noch keinen Blog erstellt";
