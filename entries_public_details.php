@@ -15,7 +15,7 @@ echo '</p>
     </div>
     <div class="clontent">
       <p>';
-echo $detailBlog['content'];
+echo nl2br($detailBlog['content']);
 echo '<p/>
     </div>
   </div>';
@@ -32,7 +32,7 @@ echo '<p/>
     foreach ($allComments as $comments => $comment) {
       echo "<h4>".$comment['name']."</h4>";
       echo date('d.m.Y', $comment['datetime'])."<br>";
-      echo $comment['content']."<br>";
+      echo nl2br($comment['content']."<br>");
     }
 
 ?>
@@ -40,7 +40,7 @@ echo '<p/>
   <form method="post" action='<?= $_SERVER['PHP_SELF']."?function=entries_public_details"; ?>'>
     <input type="hidden" name="bid" value="<?= $blogId ?>">
     <input type="hidden" name="eid" value="<?= $entryId ?>">
-        <label for="commentTitle">Kommentar Titel</label>
+        <label for="commentTitle">Benutzername</label>
       <div>
     	   <input type="text" id="title" name="titleComment" placeholder="Kommentar Titel" required="required"/>
       </div>

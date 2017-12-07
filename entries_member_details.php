@@ -15,7 +15,7 @@
             </div>
             <div class="clontent">
               <p>';
-        echo $detailBlog['content'];
+        echo nl2br($detailBlog['content']);
         echo '<p/>
             </div>
           </div>';
